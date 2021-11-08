@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+
+class ModelVehiculo(models.Model):
+    kms_recorridos = models.IntegerField()
