@@ -3,6 +3,7 @@ from django.urls import reverse
 
 
 class ModelVehiculo(models.Model):
+    kms_recorridos = models.IntegerField()
 
     class Meta:
         verbose_name = _("modelvehiculo")
