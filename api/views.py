@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, Group
+from .models import ModelVehiculo
 from rest_framework import viewsets
 from .serializers import UserSerializer, GroupSerializer, VehicleSerializer
 
@@ -14,5 +15,5 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 class VehicleViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
+    queryset = ModelVehiculo.objects.all()
     serializer_class = VehicleSerializer
