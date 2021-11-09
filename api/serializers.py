@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from .models import ModelVehiculo
+from .models import Vehicle, Route, Session, Checkpoint
 from rest_framework import serializers
 
 
@@ -17,5 +17,23 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 class VehicleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = ModelVehiculo
+        model = Vehicle
+        fields = "__all__"
+
+
+class RouteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Route
+        fields = "__all__"
+
+
+class SessionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Session
+        fields = "__all__"
+
+
+class CheckpointSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Checkpoint
         fields = "__all__"
