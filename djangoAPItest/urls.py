@@ -19,12 +19,26 @@ from rest_framework import routers
 from api import views
 
 router = routers.DefaultRouter()
-router.register(r"users", views.UserViewSet)
-router.register(r"groups", views.GroupViewSet)
-router.register(r"vehicles", views.VehicleViewSet)
-router.register(r"routes", views.RouteViewSet)
+router.register(r"sesion", views.SesionViewSet)
+router.register(r"usuarios", views.UserViewSet)
+router.register(r"grupos", views.GroupViewSet)
+router.register(r"perfiles", views.PerfilViewSet)
+router.register(r"genero", views.GeneroViewSet)
+router.register(r"vehiculos", views.VehiculoViewSet)
+router.register(r"componentes", views.ComponenteViewSet)
+router.register(r"recorridos", views.RecorridoViewSet)
 router.register(r"checkpoints", views.CheckpointViewSet)
-router.register(r"session", views.SessionViewSet)
+router.register(r"tipo_dispositivo", views.TipoDispositivoViewSet)
+router.register(r"componente_parametro", views.ComponenteParametroViewSet)
+router.register(r"tipo_dato", views.TipoDatoViewSet)
+router.register(r"tipo_componente", views.TipoComponenteViewSet)
+router.register(r"parametro_tipo", views.ParametroTipoViewSet)
+router.register(r"clasificacion_componente",
+                views.ClasificacionComponenteViewSet)
+router.register(r"clasificacion_grupo_componente",
+                views.ClasificacionGrupoComponenteViewSet)
+router.register(r"tipo_vehiculo", views.TipoVehiculoViewSet)
+router.register(r"checkpoint_componente", views.CheckpointComponenteViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
