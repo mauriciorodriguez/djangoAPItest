@@ -140,7 +140,7 @@ class Parametro_tipo(models.Model):
     obligatorio = models.BooleanField()
 
     def __str__(self):
-        return self.nombre_parametro
+        return self.nombre_parametro + " " + str(self.tipo_componente)
 
 
 class Componente(models.Model):
