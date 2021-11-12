@@ -160,6 +160,8 @@ class Componente_parametro(models.Model):
     componente = models.ForeignKey(Componente, on_delete=models.CASCADE)
     parametro_tipo = models.ForeignKey(
         Parametro_tipo, on_delete=models.CASCADE)
+    tipo_componente = models.ForeignKey(
+        Tipo_componente, on_delete=models.CASCADE, null=True)
     valor_inferior = models.CharField(max_length=50)
     valor_superior = models.CharField(max_length=50)
     mediana = models.CharField(max_length=50)
