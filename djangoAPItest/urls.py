@@ -25,7 +25,7 @@ from frontend.views import (CheckpointComponenteListView, CheckpointListView,
                             RecorridoListView, SesionListView,
                             TipoComponenteListView, TipoDatoListView,
                             TipoDispositivoListView, TipoVehiculoListView,
-                            UsuarioListView, VehiculoListView)
+                            UsuarioListView, VehiculoComponenteListView, VehiculoListView)
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -36,6 +36,7 @@ router.register(r"perfiles", views.PerfilViewSet)
 router.register(r"genero", views.GeneroViewSet)
 router.register(r"vehiculos", views.VehiculoViewSet)
 router.register(r"componentes", views.ComponenteViewSet)
+router.register(r"vehiculo_componente", views.VehiculoComponenteViewSet)
 router.register(r"recorridos", views.RecorridoViewSet)
 router.register(r"checkpoints", views.CheckpointViewSet)
 router.register(r"tipo_dispositivo", views.TipoDispositivoViewSet)
@@ -65,6 +66,7 @@ urlpatterns = [
     path("checkpoint/", CheckpointListView.as_view()),
     path("tipo_dispositivo/", TipoDispositivoListView.as_view()),
     path("componente_parametro/", ComponenteParametroListView.as_view()),
+    path("vehiculo_componente/", VehiculoComponenteListView.as_view()),
     path("tipo_dato/", TipoDatoListView.as_view()),
     path("tipo_componente/", TipoComponenteListView.as_view()),
     path("parametro_tipo/", ParametroTipoListView.as_view()),

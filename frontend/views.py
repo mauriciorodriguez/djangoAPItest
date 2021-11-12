@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from api.models import Checkpoint, Checkpoint_componente, Clasificacion_componente, Clasificacion_grupo_componente, Componente, Componente_parametro, Genero, Parametro_tipo, Perfil, Recorrido, Sesion, Tipo_componente, Tipo_dato, Tipo_dispositivo, Tipo_vehiculo, Vehiculo
+from api.models import Checkpoint, Checkpoint_componente, Clasificacion_componente, Clasificacion_grupo_componente, Componente, Componente_parametro, Genero, Parametro_tipo, Perfil, Recorrido, Sesion, Tipo_componente, Tipo_dato, Tipo_dispositivo, Tipo_vehiculo, Vehiculo, Vehiculo_componente
 from django.views.generic import ListView
 from django.contrib.auth.models import Group, User
 
@@ -96,4 +96,9 @@ class TipoVehiculoListView(ListView):
 
 class CheckpointComponenteListView(ListView):
     model = Checkpoint_componente
+    template_name = "list_tables.html"
+
+
+class VehiculoComponenteListView(ListView):
+    model = Vehiculo_componente
     template_name = "list_tables.html"

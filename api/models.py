@@ -20,7 +20,10 @@ class Vehiculo(models.Model):
     fecha_baja = models.DateField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
-        return "Identificacion vehiculo: " + str(self.identificacion)
+        return "Vehiculo: " + str(self.identificacion)
+
+    def toString(self):
+        return "Vehiculo: " + str(self.identificacion)
 
 
 class Recorrido(models.Model):
@@ -150,7 +153,7 @@ class Componente(models.Model):
     fecha_baja = models.DateField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
-        return self.tipo_componente + " " + self.marca + " " + self.modelo
+        return str(self.tipo_componente) + " " + self.marca + " " + self.modelo
 
 
 class Componente_parametro(models.Model):
@@ -163,7 +166,7 @@ class Componente_parametro(models.Model):
     observaciones = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.componente + " " + self.parametro_tipo
+        return str(self.componente) + " " + str(self.parametro_tipo)
 
 
 class Clasificacion_componente(models.Model):
@@ -183,7 +186,7 @@ class Clasificacion_grupo_componente(models.Model):
         Tipo_componente, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.clasificacion_componente + " " + self.tipo_componente
+        return str(self.clasificacion_componente) + " " + str(self.tipo_componente)
 
 
 class Vehiculo_componente(models.Model):
@@ -199,7 +202,7 @@ class Vehiculo_componente(models.Model):
     activo = models.BooleanField()
 
     def __str__(self):
-        return self.vehiculo + " " + self.componente
+        return str(self.vehiculo) + " " + str(self.componente)
 
 
 class Checkpoint_componente(models.Model):
@@ -211,4 +214,4 @@ class Checkpoint_componente(models.Model):
     estado = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.checkpoint + " " + self.componente
+        return str(self.checkpoint) + " " + str(self.componente)
