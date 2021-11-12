@@ -153,7 +153,7 @@ class Componente(models.Model):
     fecha_baja = models.DateField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
-        return str(self.tipo_componente) + " " + self.marca + " " + self.modelo
+        return str(self.tipo_componente) + " " + self.marca + " " + self.modelo + " " + self.s_n
 
 
 class Componente_parametro(models.Model):
