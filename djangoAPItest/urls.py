@@ -13,10 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from rest_framework import routers
 from api import views
+from django.contrib import admin
+from django.urls import include, path
+from frontend.views import (CheckpointComponenteListView, CheckpointListView,
+                            ClasificacionComponenteListView,
+                            ClasificacionGrupoComponenteListView,
+                            ComponenteListView, ComponenteParametroListView,
+                            GeneroListView, GrupoListView, IndexView,
+                            ParametroTipoListView, PerfilListView,
+                            RecorridoListView, SesionListView,
+                            TipoComponenteListView, TipoDatoListView,
+                            TipoDispositivoListView, TipoVehiculoListView,
+                            UsuarioListView, VehiculoListView)
+from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r"sesion", views.SesionViewSet)
@@ -41,6 +51,26 @@ router.register(r"tipo_vehiculo", views.TipoVehiculoViewSet)
 router.register(r"checkpoint_componente", views.CheckpointComponenteViewSet)
 
 urlpatterns = [
-    path("", include(router.urls)),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework"))
+    path("", IndexView.as_view()),
+    path("api/", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path("sesion/", SesionListView.as_view()),
+    path("usuario/", UsuarioListView.as_view()),
+    path("grupo/", GrupoListView.as_view()),
+    path("perfil/", PerfilListView.as_view()),
+    path("genero/", GeneroListView.as_view()),
+    path("vehiculo/", VehiculoListView.as_view()),
+    path("componente/", ComponenteListView.as_view()),
+    path("recorrido/", RecorridoListView.as_view()),
+    path("checkpoint/", CheckpointListView.as_view()),
+    path("tipo_dispositivo/", TipoDispositivoListView.as_view()),
+    path("componente_parametro/", ComponenteParametroListView.as_view()),
+    path("tipo_dato/", TipoDatoListView.as_view()),
+    path("tipo_componente/", TipoComponenteListView.as_view()),
+    path("parametro_tipo/", ParametroTipoListView.as_view()),
+    path("clasificacion_componente/", ClasificacionComponenteListView.as_view()),
+    path("clasificacion_grupo_componente/",
+         ClasificacionGrupoComponenteListView.as_view()),
+    path("tipo_vehiculo/", TipoVehiculoListView.as_view()),
+    path("checkpoint_componente/", CheckpointComponenteListView.as_view()),
 ]
