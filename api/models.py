@@ -52,7 +52,8 @@ class Recorrido(models.Model):
 
 
 class Checkpoint(models.Model):
-    recorrido = models.ForeignKey(Recorrido, on_delete=models.CASCADE)
+    recorrido = models.ForeignKey(
+        Recorrido, on_delete=models.CASCADE, null=True)
     fecha = models.DateField(auto_now=False, auto_now_add=False)
     ubicacion = models.CharField(max_length=50)
     km_parcial = models.FloatField()
